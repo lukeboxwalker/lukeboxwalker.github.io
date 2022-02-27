@@ -1,6 +1,6 @@
 #!/bin/bash
 
-git checkout --orphan gh-pages
+git checkout --orphan main
 
 echo "Building started..."
 npm run build
@@ -9,11 +9,11 @@ git --work-tree "dist" add --all
 git --work-tree "dist" commit -m "gh-pages deploy"
 
 echo "Pushing to gh-pages..."
-git push origin gh-pages --force
+git push origin main --force
 
 rm -r "dist"
 
 git checkout -f vue
-git branch -D gh-pages
+git branch -D main
 
 echo "Successfully deployed, check your settings"
